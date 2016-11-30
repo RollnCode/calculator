@@ -134,4 +134,24 @@ class CalculatorTests: XCTestCase {
     func test_mul_09() {
         XCTAssertEqual(calc.solve("2 * -5"), "-10")
     }
+
+    func test_mul_10() {
+        XCTAssertEqual(calc.solve("2 * +5"), "10")
+    }
+
+    func test_mul_11() {
+        XCTAssertEqual(calc.solve("+2 * +5"), "10")
+    }
+
+    func test_mul_12() {
+        XCTAssertEqual(calc.solve("+2 * 5"), "10")
+    }
+
+    func test_mul_13() {
+        XCTAssertEqual(calc.solve("+2 * -5"), "-10")
+    }
+
+    func test_mul_14() {
+        XCTAssertEqual(calc.solve("-2 * +5"), "-10")
+    }
 }

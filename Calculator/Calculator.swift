@@ -15,6 +15,7 @@ open class Calculator {
     open func solve(_ expression: String) -> String {
         tokenize(expression)
         processUnaryMinus()
+        processUnaryPlus()
         processFromLeftToRight()
 
         if let token = tokens.first, case .number(let digits) = token {
@@ -22,6 +23,40 @@ open class Calculator {
         }
 
         return "Error"
+    }
+
+    private func processUnaryPlus() {
+        var hasUnary = false
+
+        repeat {
+            hasUnary = false
+
+            for (index, token) in tokens.enumerated() {
+                if case .operator(let op) = token, op == .add {
+                    let left: Token? = (index - 1 >= 0) ? tokens[index - 1] : nil
+                    let right: Token? = (index + 1 < tokens.count) ? tokens[index + 1] : nil
+
+                    guard let rightToken = right else {
+                        break
+                    }
+
+                    hasUnary = left == nil
+
+                    if let leftOp = left, case .operator = leftOp {
+                        hasUnary = true
+                    }
+
+                    if !hasUnary {
+                        continue
+                    }
+
+                    if case .number = rightToken {
+                        tokens.replaceSubrange(index...(index+1), with: [rightToken])
+                        break
+                    }
+                }
+            }
+        } while hasUnary
     }
 
     private func processUnaryMinus() {
