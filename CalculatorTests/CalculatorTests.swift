@@ -49,6 +49,14 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(calc.solve("1+"), "Error")
     }
 
+    func test_add_08() {
+        XCTAssertEqual(calc.solve("++15"), "15")
+    }
+
+    func test_add_09() {
+        XCTAssertEqual(calc.solve("+++255"), "255")
+    }
+
     // Integer substraction
 
     func test_sub_01() {
@@ -96,6 +104,15 @@ class CalculatorTests: XCTestCase {
     func test_addsub_04() {
         XCTAssertEqual(calc.solve("-100 + 200 - 300 + 400 - 777"), "-577")
     }
+
+    func test_addsub_05() {
+        XCTAssertEqual(calc.solve("--100"), "100")
+    }
+
+    func test_addsub_06() {
+        XCTAssertEqual(calc.solve("-----100"), "-100")
+    }
+
 
     // Integer multiplication
 

@@ -85,7 +85,8 @@ open class Calculator {
                     }
 
                     if case .number(let number) = rightToken {
-                        let token = Token.number("-" + number)
+                        let new = 0 - Int(number)!
+                        let token = Token.number("\(new)")
                         tokens.replaceSubrange(index...(index+1), with: [token])
                         break
                     }
