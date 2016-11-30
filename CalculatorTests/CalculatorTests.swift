@@ -13,6 +13,28 @@ class CalculatorTests: XCTestCase {
 
     let calc = Calculator()
 
+    // Brackets
+
+    func test_bracket_01() {
+        XCTAssertEqual(calc.solve("(1)"), "1")
+    }
+
+    func test_bracket_02() {
+        XCTAssertEqual(calc.solve("(1) + (1)"), "2")
+    }
+
+    func test_bracket_03() {
+        XCTAssertEqual(calc.solve("(2 + 3) * 4"), "20")
+    }
+
+    func test_bracket_04() {
+        XCTAssertEqual(calc.solve("1 + ((2 + 3) * 4) / 2 + 2 * 3"), "17")
+    }
+
+    func test_bracket_05() {
+        XCTAssertEqual(calc.solve("(((1)))"), "1")
+    }
+
     // No calculations
 
     func test_equal_01() {

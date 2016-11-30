@@ -176,12 +176,43 @@ open class Calculator {
             token = .operator(op)
         }
 
-        for char in expression.characters {
-            let string = String(char)
+        var bracketsExpression = ""
+        var bracketsLevel = 0
 
-            if let scalar = UnicodeScalar(string), decimalDigits.contains(scalar) {
-                addDigit(string)
-            } else if let op = Operator(rawValue: string) {
+        for char in expression.characters {
+            let character = String(char)
+
+            if character == ")" {
+                bracketsLevel -= 1
+
+                if bracketsLevel == 0 {
+                    addDigit(Calculator().solve(bracketsExpression))
+                } else {
+                    bracketsExpression += character
+                }
+
+                continue
+            }
+
+            if character == "(" {
+                if bracketsLevel == 0 {
+                    bracketsExpression = ""
+                } else  {
+                    bracketsExpression += character
+                }
+
+                bracketsLevel += 1
+                continue
+            }
+
+            if bracketsLevel > 0 {
+                bracketsExpression += character
+                continue
+            }
+
+            if let scalar = UnicodeScalar(character), decimalDigits.contains(scalar) {
+                addDigit(character)
+            } else if let op = Operator(rawValue: character) {
                 addOperator(op)
             }
         }
