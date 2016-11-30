@@ -16,6 +16,7 @@ open class Calculator {
         tokenize(expression)
         processUnaryMinus()
         processUnaryPlus()
+        process(operators: [.mul, .div])
         processFromLeftToRight()
 
         if let token = tokens.first, case .number(let digits) = token {
@@ -23,6 +24,33 @@ open class Calculator {
         }
 
         return "Error"
+    }
+
+    private func process(operators: [Operator]) {
+        var hasTokens = false
+
+        repeat {
+            hasTokens = false
+
+            for (index, token) in tokens.enumerated() {
+                if case .operator(let op) = token, operators.contains(op) {
+                    let left: Token? = (index - 1 >= 0) ? tokens[index - 1] : nil
+                    let right: Token? = (index + 1 < tokens.count) ? tokens[index + 1] : nil
+                    let result = op.solve(left: left, right: right)
+
+                    if case .error = result {
+                        tokens = [result]
+                        return
+                    }
+
+                    tokens.replaceSubrange((left == nil ? index : (index-1))...(right == nil ? index : (index+1)), with: [result])
+                    hasTokens = true
+                    
+                    break
+                }
+            }
+
+        } while hasTokens
     }
 
     private func processUnaryPlus() {

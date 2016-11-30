@@ -113,6 +113,9 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(calc.solve("-----100"), "-100")
     }
 
+    func test_addsub_07() {
+        XCTAssertEqual(calc.solve("+-100"), "-100")
+    }
 
     // Integer multiplication
 
@@ -170,5 +173,75 @@ class CalculatorTests: XCTestCase {
 
     func test_mul_14() {
         XCTAssertEqual(calc.solve("-2 * +5"), "-10")
+    }
+
+    func test_mul_15() {
+        XCTAssertEqual(calc.solve("2 + 2 * 2"), "6")
+    }
+
+    // Integer division
+
+    func test_div_01() {
+        XCTAssertEqual(calc.solve("2/2"), "1")
+    }
+
+    func test_div_02() {
+        XCTAssertEqual(calc.solve("256/128"), "2")
+    }
+
+    func test_div_03() {
+        XCTAssertEqual(calc.solve("10/2/5"), "1")
+    }
+
+    func test_div_04() {
+        XCTAssertEqual(calc.solve("30 / 3"), "10")
+    }
+
+    func test_div_05() {
+        XCTAssertEqual(calc.solve("/1"), "Error")
+    }
+
+    func test_div_06() {
+        XCTAssertEqual(calc.solve("1/"), "Error")
+    }
+
+    func test_div_07() {
+        XCTAssertEqual(calc.solve("-20 / 5"), "-4")
+    }
+
+    func test_div_08() {
+        XCTAssertEqual(calc.solve("-20 / -5"), "4")
+    }
+
+    func test_div_09() {
+        XCTAssertEqual(calc.solve("20 / -5"), "-4")
+    }
+
+    func test_div_10() {
+        XCTAssertEqual(calc.solve("20 / +5"), "4")
+    }
+
+    func test_div_11() {
+        XCTAssertEqual(calc.solve("+20 / +5"), "4")
+    }
+
+    func test_div_12() {
+        XCTAssertEqual(calc.solve("+20 / 5"), "4")
+    }
+
+    func test_div_13() {
+        XCTAssertEqual(calc.solve("+20 / -5"), "-4")
+    }
+
+    func test_div_14() {
+        XCTAssertEqual(calc.solve("-20 / +5"), "-4")
+    }
+
+    func test_div_15() {
+        XCTAssertEqual(calc.solve("2 + 2 / 2"), "3")
+    }
+
+    func test_div_16() {
+        XCTAssertEqual(calc.solve("2 + 2 / 2 + 2 * 2"), "7")
     }
 }
