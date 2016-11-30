@@ -16,7 +16,7 @@ open class Calculator {
         tokenize(expression)
         processUnaryMinus()
         processUnaryPlus()
-        process(operators: [.mul, .div])
+        process(operators: [.mul, .div, .mod])
         processFromLeftToRight()
 
         if let token = tokens.first, case .number(let digits) = token {

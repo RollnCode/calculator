@@ -17,6 +17,7 @@ enum Operator: String {
     case sub = "-"
     case mul = "*"
     case div = "/"
+    case mod = "%"
 
     func solve(left: Token?, right: Token?) -> Token {
         switch self {
@@ -28,6 +29,8 @@ enum Operator: String {
             return MulOperator().solve(left: left, right: right)
         case .div:
             return DivOperator().solve(left: left, right: right)
+        case .mod:
+            return ModOperator().solve(left: left, right: right)
         }
     }
 }

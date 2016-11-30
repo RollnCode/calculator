@@ -244,4 +244,14 @@ class CalculatorTests: XCTestCase {
     func test_div_16() {
         XCTAssertEqual(calc.solve("2 + 2 / 2 + 2 * 2"), "7")
     }
+
+    // Integer mod tests
+
+    func test_mod_01() {
+        XCTAssertEqual(calc.solve("9 % 5"), "4")
+    }
+
+    func test_mod_02() {
+        XCTAssertEqual(calc.solve("2 + 9 % 5 + 3"), "9")
+    }
 }
