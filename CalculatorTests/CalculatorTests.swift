@@ -35,6 +35,10 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(calc.solve("(((1)))"), "1")
     }
 
+    func test_bracket_06() {
+        XCTAssertEqual(calc.solve("(((1))"), "Error")
+    }
+
     // No calculations
 
     func test_equal_01() {
