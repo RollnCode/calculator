@@ -105,6 +105,7 @@
 		7748DEDA1DF0190A007D6FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7748DEDF1DF0190A007D6FDE /* Calculator-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Calculator-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7748DEE61DF0190A007D6FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7748DEF71DF02058007D6FDE /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		775838F31DEF008900A8A89E /* DivOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivOperator.swift; sourceTree = "<group>"; };
 		775838F51DEF015700A8A89E /* ModOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModOperator.swift; sourceTree = "<group>"; };
 		775838FC1DF0181200A8A89E /* Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +224,7 @@
 				7748DED81DF0190A007D6FDE /* Calculator-macOS */,
 				7748DEE31DF0190A007D6FDE /* Calculator-macOSTests */,
 				77A9C6E91DEECCDE00EF0C0C /* Products */,
+				7748DEF71DF02058007D6FDE /* Readme.md */,
 			);
 			sourceTree = "<group>";
 		};

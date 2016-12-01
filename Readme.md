@@ -3,7 +3,7 @@
 ## Install with Crathage:
 
 ```
-github "rollncode/calculator"
+github "Rollncode/calculator"
 ```
 
 ## Supported operators
