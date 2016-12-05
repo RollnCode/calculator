@@ -274,10 +274,16 @@ class CalculatorTests: XCTestCase {
     // Integer mod tests
 
     func test_mod_01() {
-        XCTAssertEqual(calc.solve("9 % 5"), "4")
+        XCTAssertEqual(calc.solve("9 \\ 5"), "4")
     }
 
     func test_mod_02() {
-        XCTAssertEqual(calc.solve("2 + 9 % 5 + 3"), "9")
+        XCTAssertEqual(calc.solve("2 + 9 \\ 5 + 3"), "9")
+    }
+
+    // Percents tests
+
+    func test_percent_01() {
+        XCTAssertEqual(calc.solve("20%"), "0.2")
     }
 }
